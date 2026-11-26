@@ -1,0 +1,10 @@
+{
+  "format": "little-endian-float64",
+  "ruleset": "hasbro-forced-joker-v1",
+  "entries": 1048576,
+  "bytes": 8388608,
+  "sha256": "80496b552e4de238feae189e22d200a8fde06d9ebf3c8fadcbb0fd5f78595c40",
+  "initialEV": 254.58772873449598,
+  "generator": "solver/solve.cpp",
+  "index": "((filledMask * 64 + min(upperSubtotal, 63)) * 2) + yahtzeeBonusArmed"
+}

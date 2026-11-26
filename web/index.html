@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10141e">
+  <meta name="description" content="Five dice. Every possibility. Play Yahtzee or bring an exact, full-game strategy advisor to your real table.">
+  <title>Yahtzee Master — Every roll has a better move.</title>
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Yahtzee Master home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>yahtzee<span class="brand-master">master</span></span></a>
+      <div class="header-actions"><button class="text-button" id="about-button">How it works</button><button class="new-game" id="new-button"><span aria-hidden="true">＋</span> New game</button></div>
+    </header>
+
+    <main>
+      <div class="workspace-bar">
+        <nav class="mode-switch" aria-label="Game mode"><button id="mode-play" class="active" aria-pressed="true"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="10" rx="2"/><path d="M7 17h6m-3-3v3"/></svg>Play online</button><button id="mode-table" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m3 6 7-3 7 3v8l-7 3-7-3zM3 6l7 3 7-3M10 9v8"/></svg>At the table</button></nav>
+        <div class="engine-status" id="engine-status"><span class="status-light loading"></span><span>Loading strategy…</span></div>
+      </div>
+
+      <div class="game-layout">
+        <div class="play-column">
+          <section class="arena" aria-labelledby="turn-title">
+            <div class="arena-top"><div><p class="eyebrow" id="round-label">ROUND 01 OF 13</p><h1 id="turn-title">Your move.</h1></div><div class="roll-counter"><span id="roll-number">0<span>/3</span></span><span class="micro-label">ROLLS</span></div></div>
+            <p class="turn-description" id="turn-description">Five dice. A little luck. A better next move.</p>
+
+            <div class="dice-tray" id="dice-tray" role="group" aria-label="Your five dice"></div>
+            <div class="dice-instruction" id="dice-instruction">Roll to get started.</div>
+
+            <div class="turn-actions"><button class="primary-button" id="roll-button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.7 8A7 7 0 1 0 17 12M17 3v5h-5"/></svg><span>Roll dice</span></button><button class="secondary-button" id="undo-button" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h8a5 5 0 0 1 0 10"/></svg>Undo</button></div>
+
+            <div class="player-controls"><label for="player-select">Who’s making the moves?</label><div class="select-wrap"><select id="player-select"><option value="you">You · with a little guidance</option><option value="optimal">Computer · Optimal</option><option value="greedy">Computer · Greedy</option><option value="heuristic">Computer · Rule of thumb</option><option value="random">Computer · Random</option></select><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg></div></div>
+          </section>
+
+          <section class="advisor-panel" aria-labelledby="advisor-title">
+            <div class="section-heading"><div class="advisor-heading"><span class="spark" aria-hidden="true">✦</span><h2 id="advisor-title">Your edge</h2></div><span class="small-label">FULL-GAME EXPECTED VALUE</span></div>
+            <div id="advice-content" aria-live="polite"></div>
+          </section>
+
+          <section class="last-turn" id="last-turn" hidden aria-label="Last turn"></section>
+          <p id="notice" class="notice" role="status"></p>
+        </div>
+
+        <aside class="scorecard" aria-labelledby="scorecard-title">
+          <div class="scorecard-header"><div><p class="eyebrow">THE BIG PICTURE</p><h2 id="scorecard-title">Your scorecard</h2></div><div class="total-score"><span id="total-score">0</span><span>POINTS</span></div></div>
+          <div class="scorecard-table"><div class="scorecard-labels"><span>CATEGORY</span><span id="score-column-label">SCORE</span></div><div id="upper-scores"></div><div class="bonus-track"><div><span>Upper bonus</span><span id="bonus-fraction">0 <span>/ 63</span></span></div><div class="progress-track"><span id="bonus-progress"></span></div><p id="bonus-caption">Reach 63 to unlock <strong>+35 points</strong></p></div><div id="lower-scores"></div></div>
+          <div class="scorecard-footer"><span>Extra Yahtzees</span><span id="extra-score">+0</span></div>
+        </aside>
+      </div>
+      <footer class="site-footer"><span>Made for the next good roll.</span><span><button id="rules-button">Rules &amp; mathematics</button><span class="footer-dot">·</span><a href="./LICENSE" target="_blank" rel="noreferrer">MIT license</a></span></footer>
+    </main>
+  </div>
+
+  <dialog id="dialog"><div id="dialog-content"></div></dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

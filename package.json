@@ -1,0 +1,13 @@
+{
+  "name": "yahtzee-master",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "solve": "c++ -std=c++17 -O3 -o /tmp/yahtzee-master-solver solver/solve.cpp && /tmp/yahtzee-master-solver web/data/values.f64 && node scripts/manifest.mjs"
+  }
+}

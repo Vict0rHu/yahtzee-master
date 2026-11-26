@@ -1,0 +1,9 @@
+dist/
+release/
+node_modules/
+.DS_Store
+*.o
+*.exe
+coverage/
+docs/
+scripts/standalone.mjs
